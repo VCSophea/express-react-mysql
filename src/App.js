@@ -1,22 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from './constants/app';
 
 function App() {
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    axios.get(`${API_URL}/`)
+      .then((data) => {
+        console.log(data)
+        setData(data.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul>
+          {data ? data : "No data"}
+          {/* {data.map((item, index) => (
+            <li key={index}>{item.your_column_name}</li>
+          ))} */}
+        </ul>
       </header>
     </div>
   );

@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "express_development",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3308
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "express_development",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3308
+  },
+  "production": {
+    "username": "root",
+    "password": "",
+    "database": "express_development",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
